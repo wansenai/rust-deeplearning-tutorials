@@ -1,0 +1,13 @@
+license = "MIT and Apache-2.0"
+edition = "2021"
+rust-version = "1.71.1"
+authors = [
+    "James Zow <jameszow@163.com>",
+    "WanSen AI <team@wansenai.com>"
+]
+
+[workspace]
+members = [
+    "linear",
+    "softmax",
+]
