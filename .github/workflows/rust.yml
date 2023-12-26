@@ -11,8 +11,10 @@ env:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v3
@@ -20,3 +22,7 @@ jobs:
       run: cd 00_data_operation && cargo build --verbose
     - name: Run 00_data_operation tests
       run: cd 00_data_operation && cargo test --verbose
+    - name: Build 01_linear_neural_network
+      run: cd 01_linear_neural_network && cargo build --verbose
+    - name: Run 01_linear_neural_network tests
+      run: cd 01_linear_neural_network && cargo test --verbose
