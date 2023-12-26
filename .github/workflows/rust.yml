@@ -1,0 +1,22 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build 00_data_operation
+      run: cd 00_data_operation && cargo build --verbose
+    - name: Run 00_data_operation tests
+      run: cd 00_data_operation && cargo test --verbose
